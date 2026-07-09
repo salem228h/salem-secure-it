@@ -94,8 +94,8 @@ export default function Home() {
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-border">
                 <img
-                  src="/hero-collage.png"
-                  alt="IT Support and Cybersecurity Solutions"
+                  src="/shield-hero.png"
+                  alt="Salem Secure IT — Cybersecurity Shield"
                   className="w-full h-[480px] object-cover"
                 />
               </div>
