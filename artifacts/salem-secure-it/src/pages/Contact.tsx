@@ -1,27 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Phone, Send, Terminal } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleSubmit = (e: React.FormEvent) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate network request
-    setTimeout(() => {
-      setIsSubmitting(false);
+    if (!formRef.current) return;
+
+    const serviceId  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
       toast({
-        title: "Message Transmitted Securely",
-        description: "We've received your request. We'll be in touch within 24 hours.",
-        variant: "default",
+        title: "EmailJS Not Configured",
+        description: "Please add your EmailJS credentials to the environment variables.",
+        variant: "destructive",
       });
-      // Reset form
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey });
+      toast({
+        title: "Message Sent Successfully! ✅",
+        description: "We've received your request. We'll be in touch within 24 hours.",
+      });
+      formRef.current.reset();
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      toast({
+        title: "Failed to Send",
+        description: "Something went wrong. Please email us directly at salemhassani228@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,7 +74,7 @@ export default function Contact() {
               <Terminal className="w-4 h-4" /> SECURE_COMMS_LINK_ESTABLISHED
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
@@ -60,6 +82,7 @@ export default function Contact() {
                     type="text" 
                     id="name" 
                     required
+                    name="from_name"
                     className="w-full bg-background border border-border rounded-md px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-foreground"
                     placeholder="John Doe"
                   />
@@ -69,6 +92,7 @@ export default function Contact() {
                   <input 
                     type="text" 
                     id="company" 
+                    name="company"
                     className="w-full bg-background border border-border rounded-md px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-foreground"
                     placeholder="Acme Corp"
                   />
@@ -82,6 +106,7 @@ export default function Contact() {
                     type="email" 
                     id="email" 
                     required
+                    name="reply_to"
                     className="w-full bg-background border border-border rounded-md px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-foreground"
                     placeholder="john@example.com"
                   />
@@ -91,6 +116,7 @@ export default function Contact() {
                   <input 
                     type="tel" 
                     id="phone" 
+                    name="phone"
                     className="w-full bg-background border border-border rounded-md px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-foreground"
                     placeholder="(514) 555-0123"
                   />
@@ -101,6 +127,7 @@ export default function Contact() {
                 <label htmlFor="service" className="text-sm font-medium text-foreground">Service Required</label>
                 <select 
                   id="service"
+                  name="service"
                   className="w-full bg-background border border-border rounded-md px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-foreground appearance-none"
                   required
                 >
@@ -116,7 +143,8 @@ export default function Contact() {
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
                 <textarea 
-                  id="message" 
+                  id="message"
+                  name="message"
                   rows={5}
                   required
                   className="w-full bg-background border border-border rounded-md px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-foreground resize-none"
