@@ -24,4 +24,4 @@ timeoutMs = 20000
 [userenv.shared]
 VITE_EMAILJS_PUBLIC_KEY = "vG_Q3r8PBD-gvyf8T"
 VITE_EMAILJS_SERVICE_ID = "service_36ai07l"
-VITE_EMAILJS_TEMPLATE_ID = "template_hh7bvdm"
+VITE_EMAILJS_TEMPLATE_ID = "template_iz27s8u"
