@@ -18,3 +18,10 @@ expertMode = true
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 20000
+
+[userenv]
+
+[userenv.shared]
+VITE_EMAILJS_PUBLIC_KEY = "vG_Q3r8PBD-gvyf8T"
+VITE_EMAILJS_SERVICE_ID = "service_6d1ygf8"
+VITE_EMAILJS_TEMPLATE_ID = "template_hh7bvdm"
