@@ -26,9 +26,21 @@ export default function Contact() {
       return;
     }
 
+    // Collect form values
+    const data = new FormData(formRef.current);
+    const templateParams = {
+      to_email:  'salemhassani228@gmail.com',
+      from_name: data.get('from_name') as string,
+      reply_to:  data.get('reply_to')  as string,
+      phone:     data.get('phone')     as string,
+      company:   data.get('company')   as string,
+      service:   data.get('service')   as string,
+      message:   data.get('message')   as string,
+    };
+
     setIsSubmitting(true);
     try {
-      await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey });
+      await emailjs.send(serviceId, templateId, templateParams, { publicKey });
       toast({
         title: "Message Sent Successfully! ✅",
         description: "We've received your request. We'll be in touch within 24 hours.",
