@@ -28,14 +28,31 @@ export default function Contact() {
 
     // Collect form values
     const data = new FormData(formRef.current);
+    const fromName = data.get('from_name') as string;
+    const replyTo  = data.get('reply_to')  as string;
+    const phone    = data.get('phone')     as string;
+    const company  = data.get('company')   as string;
+    const service  = data.get('service')   as string;
+    const msg      = data.get('message')   as string;
+
+    // Build a full message body so any template variable displays all info
+    const fullMessage = `Name: ${fromName}\nEmail: ${replyTo}\nPhone: ${phone}\nCompany: ${company || 'N/A'}\nService: ${service}\n\nMessage:\n${msg}`;
+
     const templateParams = {
-      to_email:  'salemhassani228@gmail.com',
-      from_name: data.get('from_name') as string,
-      reply_to:  data.get('reply_to')  as string,
-      phone:     data.get('phone')     as string,
-      company:   data.get('company')   as string,
-      service:   data.get('service')   as string,
-      message:   data.get('message')   as string,
+      to_email:     'salemhassani228@gmail.com',
+      to_name:      'Salem',
+      from_name:    fromName,
+      reply_to:     replyTo,
+      phone,
+      company,
+      service,
+      // cover every common EmailJS default variable name
+      message:      fullMessage,
+      request:      fullMessage,
+      message_html: fullMessage,
+      user_name:    fromName,
+      user_email:   replyTo,
+      user_message: fullMessage,
     };
 
     setIsSubmitting(true);
