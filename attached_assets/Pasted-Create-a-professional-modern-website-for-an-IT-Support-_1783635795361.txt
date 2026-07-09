@@ -1,0 +1,138 @@
+Create a professional modern website for an IT Support and Cybersecurity company based in Quebec, Canada.
+
+Company name:
+Salem Secure IT
+
+Business type:
+IT Support, Network Solutions, Cybersecurity Services, and Smart Home Technology.
+
+Target customers:
+Small businesses, home users, and professionals in Quebec (Montreal, Brossard, Longueuil).
+
+Website style:
+Modern cybersecurity theme, professional, trustworthy, clean design.
+Use dark blue, black, white, and green accents.
+The website should look like a real Canadian technology company.
+
+Main goal:
+Generate customer leads and build trust for future growth into a cybersecurity company.
+
+Create these pages:
+
+1. HOME PAGE
+- Hero section with company name and slogan:
+"IT Support & Cybersecurity Solutions for Small Businesses"
+- Add buttons:
+"Get Free Consultation"
+"Contact Us"
+
+Short introduction:
+"We help individuals and small businesses protect their technology, networks, and data with reliable IT support and cybersecurity solutions."
+
+Include:
+- Professional technology images
+- Security icons
+- Client trust section
+
+2. SERVICES PAGE
+
+Create four service categories:
+
+IT Support:
+- Windows installation and configuration
+- Software installation
+- Microsoft 365 support
+- Email troubleshooting
+- Remote technical support
+
+Network Solutions:
+- Wi-Fi installation
+- Router configuration
+- Firewall setup
+- Network troubleshooting
+- Small business network design
+
+Cybersecurity Services:
+- Security assessment
+- Vulnerability scanning
+- Multi-factor authentication setup
+- Phishing awareness training
+- Basic security monitoring
+
+Smart Home & Security:
+- Security camera installation
+- Smart devices setup
+- Home network protection
+
+3. ABOUT PAGE
+
+Include:
+
+"Salem Secure IT provides reliable IT support and cybersecurity services for individuals and small businesses. Our mission is to make technology secure, simple, and reliable."
+
+Add professional background:
+- Cybersecurity student
+- Networking experience
+- Linux and security labs
+- Firewall and SIEM projects
+- TryHackMe security practice
+
+4. PROJECTS PAGE
+
+Show portfolio projects:
+
+- OPNsense Firewall Implementation
+- VLAN Network Segmentation
+- Wazuh SIEM Monitoring
+- Linux Server Security
+- Network Security Labs
+- Cybersecurity Training Projects
+
+Each project should have:
+- Description
+- Technology used
+- Security benefit
+
+5. PRICING PAGE
+
+Create service packages:
+
+Home IT Support:
+Basic technical support
+
+Small Business IT:
+Monthly support package
+
+Cybersecurity Package:
+Security assessment, monitoring, and protection
+
+6. CONTACT PAGE
+
+Include:
+- Contact form
+- Name
+- Email
+- Phone
+- Service request
+- Message
+
+Add:
+Location:
+Quebec, Canada
+
+Technology requirements:
+- Responsive design for mobile and desktop
+- SEO optimized
+- Fast loading
+- Professional animations
+- Secure contact form
+- Modern navigation menu
+
+Future features:
+- Customer portal
+- Online appointment booking
+- Ticket support system
+- Blog about cybersecurity
+- Client login area
+
+Make the website look like a professional cybersecurity company that can grow into a larger IT services business.

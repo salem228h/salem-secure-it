@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Salem Secure IT"
+version = "1.0.0"
+id = "artifacts/salem-secure-it"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22656
+
+[services.development]
+run = "pnpm --filter @workspace/salem-secure-it run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/salem-secure-it", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/salem-secure-it/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22656"
+BASE_PATH = "/"
