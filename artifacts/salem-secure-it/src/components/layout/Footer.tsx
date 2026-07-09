@@ -65,19 +65,19 @@ export default function Footer() {
               <li>
                 <a href="#" className="flex items-start gap-3 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>Montreal, Brossard, & Longueuil<br/>Quebec, Canada</span>
+                  <span>140 Avenue de Navarre<br/>Saint-Lambert, Quebec, Canada</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:support@salemsecureit.ca" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm">
+                <a href="mailto:salemhassani228@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <Mail className="w-4 h-4 shrink-0" />
-                  <span>support@salemsecureit.ca</span>
+                  <span>salemhassani228@gmail.com</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+12345678900" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm">
+                <a href="tel:+14388693389" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm">
                   <Phone className="w-4 h-4 shrink-0" />
-                  <span>Request a Callback</span>
+                  <span>(438) 869-3389</span>
                 </a>
               </li>
             </ul>

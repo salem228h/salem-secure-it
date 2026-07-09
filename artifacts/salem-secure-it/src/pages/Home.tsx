@@ -1,82 +1,119 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import { Shield, Server, Wifi, Eye, Lock, ChevronRight, Activity, Terminal } from 'lucide-react';
+import { Shield, Server, Wifi, Eye, Lock, ChevronRight, Activity, Terminal, ArrowRight as ArrowRightIcon } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden bg-grid-pattern">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0 opacity-20 bg-cover bg-center bg-no-repeat mix-blend-luminosity"
-          style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
-        />
-
+      <section className="relative pt-28 pb-0 overflow-hidden bg-grid-pattern">
         {/* Background elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-[120px]" />
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
         </div>
 
-        {/* Pseudo-terminal top bar */}
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 border border-border bg-card/80 backdrop-blur-sm rounded-full px-4 py-1.5 flex items-center gap-3 z-10 text-xs font-mono text-muted-foreground shadow-lg">
-          <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-destructive/80"></div>
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-            <div className="w-2.5 h-2.5 rounded-full bg-primary/80"></div>
-          </div>
-          <span className="w-px h-3 bg-border"></span>
-          <span>SYSTEM.STATUS: OPERATIONAL</span>
-        </div>
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+            {/* Left: text */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary rounded-full px-4 py-1.5 text-sm font-mono mb-6"
+              >
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                SYSTEM.STATUS: OPERATIONAL
+              </motion.div>
 
-        <div className="container mx-auto px-6 z-10">
-          <div className="max-w-4xl mx-auto text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight"
+              >
+                IT Support &amp;{' '}
+                <span className="text-primary">Cybersecurity</span>{' '}
+                Solutions for Small Businesses
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg text-muted-foreground mb-10 leading-relaxed"
+              >
+                We help individuals and small businesses protect their technology, networks, and data with reliable IT support and cybersecurity solutions.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row items-start gap-4"
+              >
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-md hover:bg-primary/90 shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
+                >
+                  Get Free Consultation
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 border border-border bg-white hover:bg-muted text-foreground font-semibold rounded-md transition-all flex items-center gap-2 shadow-sm"
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
+
+              {/* Trust badges */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="mt-12 flex flex-wrap gap-6 text-sm text-muted-foreground"
+              >
+                {['Secure', 'Reliable', 'Expert', '24/7 Support'].map((badge) => (
+                  <div key={badge} className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-primary" />
+                    <span className="font-medium">{badge}</span>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right: hero image collage */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative"
             >
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-                Fortify Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 glow-text">Digital Defenses.</span>
-              </h1>
-            </motion.div>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
-              Salem Secure IT provides no-nonsense IT support and cybersecurity solutions for small businesses and individuals in Quebec. We make your technology secure, simple, and reliable.
-            </motion.p>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Link 
-                href="/contact" 
-                className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold rounded-md hover:shadow-[0_0_30px_rgba(0,255,136,0.3)] transition-all flex items-center justify-center gap-2 group"
-              >
-                Get Free Consultation
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                href="/services" 
-                className="w-full sm:w-auto px-8 py-4 border border-border bg-card/50 hover:bg-card text-foreground font-semibold rounded-md transition-all flex items-center justify-center gap-2"
-              >
-                Explore Services
-              </Link>
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <img
+                  src="/hero-collage.png"
+                  alt="IT Support and Cybersecurity Solutions"
+                  className="w-full h-[480px] object-cover"
+                />
+              </div>
+              {/* Floating badge */}
+              <div className="absolute -bottom-5 -left-5 bg-white border border-border rounded-xl px-5 py-3 shadow-lg flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Lock className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground font-mono">Response Time</p>
+                  <p className="font-bold text-foreground">&lt; 2 Hours</p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Image / Stats overlay */}
-        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
+        <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-background to-transparent z-10" />
       </section>
 
       {/* Services Overview */}

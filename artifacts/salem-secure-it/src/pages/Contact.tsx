@@ -168,7 +168,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-1">Email Support</p>
-                    <a href="mailto:support@salemsecureit.ca" className="font-semibold hover:text-primary transition-colors">support@salemsecureit.ca</a>
+                    <a href="mailto:salemhassani228@gmail.com" className="font-semibold hover:text-primary transition-colors">salemhassani228@gmail.com</a>
                   </div>
                 </div>
                 
@@ -178,7 +178,17 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-1">Phone</p>
-                    <a href="tel:+12345678900" className="font-semibold hover:text-primary transition-colors">Request a callback via form</a>
+                    <a href="tel:+14388693389" className="font-semibold hover:text-primary transition-colors">(438) 869-3389</a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-1">Address</p>
+                    <p className="font-semibold">140 Avenue de Navarre<br/>Saint-Lambert, Quebec</p>
                   </div>
                 </div>
               </div>
