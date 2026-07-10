@@ -1,0 +1,30 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/opt/build/repo/artifacts/salem-secure-it/dist/public"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "/opt/build/repo"
+command = "pnpm --filter @workspace/salem-secure-it run build"
+
+[build.environment]
+BASE_PATH = "/"
+PORT = "8888"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
