@@ -1,0 +1,8 @@
+[build]
+  base = "."
+  command = "corepack pnpm --filter @workspace/salem-secure-it run build"
+  publish = "artifacts/salem-secure-it/dist/public"
+
+[build.environment]
+  BASE_PATH = "/"
+  PORT = "8888"
