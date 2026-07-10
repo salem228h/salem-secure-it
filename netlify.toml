@@ -1,0 +1,4 @@
+[build]
+base = "salem-secure-it"
+command = "pnpm run build"
+publish = "dist"
